@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 
 app.post("/events", (req, res) => {
   const content = req.body;
-
+  console.log(content, "hree");
   axios.post("http://localhost:4000/events", content).catch((e) => {
     console.log("error", e);
   });
@@ -17,6 +17,7 @@ app.post("/events", (req, res) => {
   axios.post("http://localhost:4002/events", content).catch((e) => {
     console.log("error", e);
   });
+  res.send({ status: "OK" });
 });
 
 app.listen(4005, () => {
